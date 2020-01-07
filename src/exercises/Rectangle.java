@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Rectangle {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
+        input.close();
         System.out.println("Enter the length of the rectangle:");
         Double length = input.nextDouble();
         System.out.println("Enter the width of the rectangle:");
