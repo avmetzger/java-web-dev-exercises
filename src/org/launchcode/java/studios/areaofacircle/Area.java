@@ -6,8 +6,15 @@ import java.util.Scanner;
 public class Area {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please input the radius of a circle to calculate its area:");
-        Double radius = input.nextDouble();
+        Double radius = 0.0;
+        do {
+            System.out.println("Please input the radius of a circle to calculate its area:");
+            if (input.hasNextDouble()) {
+                radius = input.nextDouble();
+            } else {
+                input.nextLine();
+            }
+        } while(radius <= 0.0);
         Double area = Circle.getArea(radius);
         System.out.println("The area of a circle of radius " + radius + " is: " + area);
     }
