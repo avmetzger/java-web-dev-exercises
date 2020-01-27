@@ -1,12 +1,23 @@
 package org.launchcode.java.demos.lsn5unittesting.test;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.launchcode.java.demos.lsn5unittesting.main.Car;
 
 import static org.junit.Assert.*;
 
+@RunWith(JUnit4.class)
 public class CarTest {
     Car test_car;
+    private static int numTestsRun = 0;
+
+    //run once before tests
+    @BeforeClass
+    public static void setup() {
+        System.out.println("Starting unit tests CarTest!");
+    }
+
+    //run once before each test
     @Before
     public void createCarObject(){
         test_car = new Car("Toyota","Prius",10,50);
@@ -15,6 +26,11 @@ public class CarTest {
     @Test
     public void emptyTest(){
         assertEquals(10,10,.001);
+    }
+
+    @Test
+    public void testNotNull() {
+        assertNotNull(test_car);
     }
     //TODO: constructor sets gasTankLevel properly
     @Test
@@ -46,5 +62,13 @@ public class CarTest {
     public void testGasOverFillException(){
         test_car.addGas(5);
         fail("Shouldn't get here, car cannot have more gas in tank than the size of the tank");
+    }
+    @After
+    public void finalize() {
+        System.out.println("Test #" + ++numTestsRun + " run");
+    }
+    @AfterClass
+    public static void tearDown() {
+        System.out.println(numTestsRun + " tests run");
     }
 }
