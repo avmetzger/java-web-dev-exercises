@@ -29,4 +29,11 @@ public class SmartPhone extends Computer{
         removeNetworkList.remove(oldNetwork);
         setSupportedNetworks((String[]) removeNetworkList.toArray());
     }
+
+    @Override
+    public String toString() {
+        return "SmartPhone{" + super.toString() +
+                "supportedNetworks=" + Arrays.toString(supportedNetworks) +
+                '}';
+    }
 }

@@ -1,6 +1,6 @@
 package exercises.technology;
 
-public abstract class Computer {
+public class Computer extends AbstractEntity{
     private final String brand;
     private String operatingSystem;
     private String weight;
@@ -43,11 +43,20 @@ public abstract class Computer {
         return horizontalRes;
     }
 
-    public String returnResolution(int horizontalRes, int verticalRes){
+    public String returnResolution(){
         return horizontalRes + "x" + verticalRes;
     }
 
     public boolean isOsUpdated(String mostRecentOS){
         return this.operatingSystem.equals(mostRecentOS);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "brand='" + brand + '\'' +
+                ", operatingSystem='" + operatingSystem + '\'' +
+                ", weight='" + weight + '\'' +
+                ", verticalRes=" + verticalRes +
+                ", horizontalRes=" + horizontalRes+", ";
     }
 }

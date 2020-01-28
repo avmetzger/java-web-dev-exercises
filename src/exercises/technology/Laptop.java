@@ -33,4 +33,12 @@ public class Laptop extends Computer {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Laptop{" + super.toString() +
+                "integratedGraphics=" + integratedGraphics +
+                ", touchScreen=" + touchScreen +
+                '}';
+    }
 }
